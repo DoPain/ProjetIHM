@@ -26,5 +26,14 @@ namespace BenouKaiis_Morax_IHM
         {
 
         }
+
+        private void tourSuivant_Click(object sender, EventArgs e)
+        {
+            w.NextTurn();
+            numéroTour.Text = w.Turns.ToString();
+            finances.Text = w.Money.ToString();
+            gloire.Text = w.Glory.ToString();
+        }
+
     }
 }

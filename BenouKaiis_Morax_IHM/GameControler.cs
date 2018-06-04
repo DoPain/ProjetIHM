@@ -188,7 +188,7 @@ namespace VivianeProject
             {
                 Console.Write(DefaultCommand + ">");
                 string input = Console.In.ReadLine();
-                sInterpret(input);
+                Interpret(input);
 
             }
             Console.Write("Fin du jeu : entree");
