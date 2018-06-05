@@ -19,7 +19,9 @@ namespace BenouKaiis_Morax_IHM
         public MainWindow()
         {
             InitializeComponent();
-            GameControler.MainLoop(w);
+            numéroTour.Text = w.Turns.ToString();
+            finances.Text = w.Money.ToString();
+            gloire.Text = w.Glory.ToString();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -33,7 +35,27 @@ namespace BenouKaiis_Morax_IHM
             numéroTour.Text = w.Turns.ToString();
             finances.Text = w.Money.ToString();
             gloire.Text = w.Glory.ToString();
+
+            showLoseDialog(w.Crises.Find(c => c.Result == IndexedValue.ResultType.Lose && c.Active == true));
         }
 
+        private void showLoseDialog(IndexedValue indexedValue) {
+            if (indexedValue == null) {
+                MessageBox.Show("Partie perdue : dette insurmontable.", "Perdu");
+            } else {
+                MessageBox.Show("Partie perdue :" +
+                 indexedValue.CompletePresentation());
+            }
+
+            tourSuivant.Enabled = false;
+        }
+
+        private void numéroTour_Click(object sender, EventArgs e) {
+
+        }
+
+        private void gloire_Click(object sender, EventArgs e) {
+
+        }
     }
 }

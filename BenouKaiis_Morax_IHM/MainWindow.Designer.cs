@@ -65,8 +65,9 @@
             // numéroTour
             // 
             this.numéroTour.Name = "numéroTour";
-            this.numéroTour.Size = new System.Drawing.Size(86, 22);
-            this.numéroTour.Text = "toolStripLabel1";
+            this.numéroTour.Size = new System.Drawing.Size(12, 22);
+            this.numéroTour.Text = "?";
+            this.numéroTour.Click += new System.EventHandler(this.numéroTour_Click);
             // 
             // label2
             // 
@@ -77,8 +78,8 @@
             // finances
             // 
             this.finances.Name = "finances";
-            this.finances.Size = new System.Drawing.Size(86, 22);
-            this.finances.Text = "toolStripLabel2";
+            this.finances.Size = new System.Drawing.Size(12, 22);
+            this.finances.Text = "?";
             // 
             // label3
             // 
@@ -89,8 +90,9 @@
             // gloire
             // 
             this.gloire.Name = "gloire";
-            this.gloire.Size = new System.Drawing.Size(86, 22);
-            this.gloire.Text = "toolStripLabel3";
+            this.gloire.Size = new System.Drawing.Size(12, 22);
+            this.gloire.Text = "?";
+            this.gloire.Click += new System.EventHandler(this.gloire_Click);
             // 
             // tourSuivant
             // 
