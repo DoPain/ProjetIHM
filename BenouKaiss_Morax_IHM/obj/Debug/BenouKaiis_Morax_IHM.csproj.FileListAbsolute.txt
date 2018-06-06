@@ -1,0 +1,9 @@
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\obj\Debug\BenouKaiis_Morax_IHM.csprojResolveAssemblyReference.cache
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\obj\Debug\BenouKaiis_Morax_IHM.csproj.GenerateResource.Cache
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.exe.config
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.MainWindow.resources
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.Properties.Resources.resources
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.exe
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.pdb
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.exe
+\\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiis_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.pdb
