@@ -34,17 +34,20 @@
             this.informations = new System.Windows.Forms.ToolStrip();
             this.separateur = new System.Windows.Forms.ToolStripSeparator();
             this.grid = new System.Windows.Forms.TableLayoutPanel();
-            this.beneficesProblemes = new System.Windows.Forms.ListBox();
-            this.politiquesActives = new System.Windows.Forms.ListBox();
             this.groupes = new System.Windows.Forms.ListBox();
-            this.politiquesDisponibles = new System.Windows.Forms.ListBox();
             this.idk = new System.Windows.Forms.GroupBox();
             this.quitter = new System.Windows.Forms.Button();
             this.historique = new System.Windows.Forms.Button();
+            this.politiques = new System.Windows.Forms.FlowLayoutPanel();
+            this.indicateursBox = new System.Windows.Forms.GroupBox();
             this.indicateurs = new System.Windows.Forms.FlowLayoutPanel();
+            this.beneficesProblemesBox = new System.Windows.Forms.GroupBox();
+            this.beneficesProblemes = new System.Windows.Forms.FlowLayoutPanel();
             this.informations.SuspendLayout();
             this.grid.SuspendLayout();
             this.idk.SuspendLayout();
+            this.indicateursBox.SuspendLayout();
+            this.beneficesProblemesBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tourTexte
@@ -108,7 +111,7 @@
             this.tourSuivant});
             this.informations.Location = new System.Drawing.Point(0, 0);
             this.informations.Name = "informations";
-            this.informations.Size = new System.Drawing.Size(1429, 25);
+            this.informations.Size = new System.Drawing.Size(1353, 25);
             this.informations.TabIndex = 0;
             this.informations.Text = "toolStrip1";
             // 
@@ -119,76 +122,56 @@
             // 
             // grid
             // 
-            this.grid.ColumnCount = 4;
-            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.grid.Controls.Add(this.beneficesProblemes, 0, 0);
-            this.grid.Controls.Add(this.politiquesActives, 0, 2);
+            this.grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grid.AutoSize = true;
+            this.grid.ColumnCount = 3;
+            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.grid.Controls.Add(this.groupes, 1, 1);
-            this.grid.Controls.Add(this.politiquesDisponibles, 2, 2);
-            this.grid.Controls.Add(this.idk, 3, 1);
-            this.grid.Controls.Add(this.indicateurs, 0, 1);
+            this.grid.Controls.Add(this.idk, 2, 1);
+            this.grid.Controls.Add(this.politiques, 0, 2);
+            this.grid.Controls.Add(this.indicateursBox, 0, 1);
+            this.grid.Controls.Add(this.beneficesProblemesBox, 0, 0);
             this.grid.Location = new System.Drawing.Point(12, 28);
             this.grid.Name = "grid";
             this.grid.RowCount = 3;
-            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33111F));
-            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33778F));
-            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33111F));
-            this.grid.Size = new System.Drawing.Size(1405, 515);
+            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.grid.Size = new System.Drawing.Size(1341, 618);
             this.grid.TabIndex = 1;
-            // 
-            // beneficesProblemes
-            // 
-            this.grid.SetColumnSpan(this.beneficesProblemes, 4);
-            this.beneficesProblemes.FormattingEnabled = true;
-            this.beneficesProblemes.Location = new System.Drawing.Point(3, 3);
-            this.beneficesProblemes.Name = "beneficesProblemes";
-            this.beneficesProblemes.Size = new System.Drawing.Size(1399, 160);
-            this.beneficesProblemes.TabIndex = 0;
-            // 
-            // politiquesActives
-            // 
-            this.grid.SetColumnSpan(this.politiquesActives, 2);
-            this.politiquesActives.FormattingEnabled = true;
-            this.politiquesActives.Location = new System.Drawing.Point(3, 345);
-            this.politiquesActives.Name = "politiquesActives";
-            this.politiquesActives.Size = new System.Drawing.Size(696, 160);
-            this.politiquesActives.TabIndex = 1;
             // 
             // groupes
             // 
-            this.grid.SetColumnSpan(this.groupes, 2);
+            this.groupes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupes.FormattingEnabled = true;
-            this.groupes.Location = new System.Drawing.Point(471, 174);
+            this.groupes.Location = new System.Drawing.Point(449, 157);
             this.groupes.Name = "groupes";
-            this.groupes.Size = new System.Drawing.Size(462, 160);
+            this.groupes.Size = new System.Drawing.Size(441, 147);
             this.groupes.TabIndex = 4;
-            // 
-            // politiquesDisponibles
-            // 
-            this.grid.SetColumnSpan(this.politiquesDisponibles, 2);
-            this.politiquesDisponibles.FormattingEnabled = true;
-            this.politiquesDisponibles.Location = new System.Drawing.Point(705, 345);
-            this.politiquesDisponibles.Name = "politiquesDisponibles";
-            this.politiquesDisponibles.Size = new System.Drawing.Size(697, 160);
-            this.politiquesDisponibles.TabIndex = 5;
             // 
             // idk
             // 
+            this.idk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.idk.Controls.Add(this.quitter);
             this.idk.Controls.Add(this.historique);
-            this.idk.Location = new System.Drawing.Point(939, 174);
+            this.idk.Location = new System.Drawing.Point(896, 157);
             this.idk.Name = "idk";
-            this.idk.Size = new System.Drawing.Size(463, 165);
+            this.idk.Size = new System.Drawing.Size(442, 148);
             this.idk.TabIndex = 6;
             this.idk.TabStop = false;
             this.idk.Text = "idk";
             // 
             // quitter
             // 
-            this.quitter.Location = new System.Drawing.Point(382, 136);
+            this.quitter.Location = new System.Drawing.Point(360, 119);
             this.quitter.Name = "quitter";
             this.quitter.Size = new System.Drawing.Size(75, 23);
             this.quitter.TabIndex = 1;
@@ -198,26 +181,80 @@
             // 
             // historique
             // 
-            this.historique.Location = new System.Drawing.Point(6, 136);
+            this.historique.Location = new System.Drawing.Point(6, 119);
             this.historique.Name = "historique";
             this.historique.Size = new System.Drawing.Size(75, 23);
             this.historique.TabIndex = 0;
             this.historique.Text = "Historique";
             this.historique.UseVisualStyleBackColor = true;
             // 
+            // politiques
+            // 
+            this.politiques.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.politiques.AutoScroll = true;
+            this.grid.SetColumnSpan(this.politiques, 3);
+            this.politiques.Location = new System.Drawing.Point(3, 318);
+            this.politiques.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.politiques.Name = "politiques";
+            this.politiques.Size = new System.Drawing.Size(1335, 297);
+            this.politiques.TabIndex = 8;
+            // 
+            // indicateursBox
+            // 
+            this.indicateursBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.indicateursBox.Controls.Add(this.indicateurs);
+            this.indicateursBox.Location = new System.Drawing.Point(3, 157);
+            this.indicateursBox.Name = "indicateursBox";
+            this.indicateursBox.Size = new System.Drawing.Size(440, 148);
+            this.indicateursBox.TabIndex = 9;
+            this.indicateursBox.TabStop = false;
+            this.indicateursBox.Text = "Indicateurs";
+            // 
             // indicateurs
             // 
-            this.indicateurs.Location = new System.Drawing.Point(3, 174);
-            this.indicateurs.Name = "indicateurs";
-            this.indicateurs.Size = new System.Drawing.Size(462, 165);
-            this.indicateurs.TabIndex = 7;
+            this.indicateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.indicateurs.AutoScroll = true;
+            this.indicateurs.Location = new System.Drawing.Point(6, 19);
+            this.indicateurs.Name = "indicateurs";
+            this.indicateurs.Size = new System.Drawing.Size(428, 123);
+            this.indicateurs.TabIndex = 8;
+            // 
+            // beneficesProblemesBox
+            // 
+            this.beneficesProblemesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grid.SetColumnSpan(this.beneficesProblemesBox, 3);
+            this.beneficesProblemesBox.Controls.Add(this.beneficesProblemes);
+            this.beneficesProblemesBox.Location = new System.Drawing.Point(3, 3);
+            this.beneficesProblemesBox.Name = "beneficesProblemesBox";
+            this.beneficesProblemesBox.Size = new System.Drawing.Size(1335, 148);
+            this.beneficesProblemesBox.TabIndex = 10;
+            this.beneficesProblemesBox.TabStop = false;
+            this.beneficesProblemesBox.Text = "Bénéfices et problèmes";
+            // 
+            // beneficesProblemes
+            // 
+            this.beneficesProblemes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.beneficesProblemes.AutoScroll = true;
+            this.beneficesProblemes.Location = new System.Drawing.Point(6, 19);
+            this.beneficesProblemes.Name = "beneficesProblemes";
+            this.beneficesProblemes.Size = new System.Drawing.Size(1320, 123);
+            this.beneficesProblemes.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1429, 555);
+            this.ClientSize = new System.Drawing.Size(1353, 657);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.informations);
             this.DoubleBuffered = true;
@@ -228,6 +265,8 @@
             this.informations.PerformLayout();
             this.grid.ResumeLayout(false);
             this.idk.ResumeLayout(false);
+            this.indicateursBox.ResumeLayout(false);
+            this.beneficesProblemesBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,14 +284,15 @@
         private System.Windows.Forms.ToolStrip informations;
         private System.Windows.Forms.ToolStripSeparator separateur;
         private System.Windows.Forms.TableLayoutPanel grid;
-        private System.Windows.Forms.ListBox beneficesProblemes;
-        private System.Windows.Forms.ListBox politiquesActives;
         private System.Windows.Forms.ListBox groupes;
-        private System.Windows.Forms.ListBox politiquesDisponibles;
         private System.Windows.Forms.GroupBox idk;
         private System.Windows.Forms.Button quitter;
         private System.Windows.Forms.Button historique;
+        private System.Windows.Forms.FlowLayoutPanel politiques;
+        private System.Windows.Forms.GroupBox indicateursBox;
         private System.Windows.Forms.FlowLayoutPanel indicateurs;
+        private System.Windows.Forms.GroupBox beneficesProblemesBox;
+        private System.Windows.Forms.FlowLayoutPanel beneficesProblemes;
     }
 }
 

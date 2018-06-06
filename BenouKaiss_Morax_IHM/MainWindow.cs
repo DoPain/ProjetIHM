@@ -45,9 +45,13 @@ namespace BenouKaiss_Morax_IHM
             indicateurs.Controls.Clear();
             w.Indicators.FindAll(i => i.Active != false).ForEach(i => indicateurs.Controls.Add(new IndexedValueView(i)));
 
-            beneficesProblemes.Items.Clear();
+            beneficesProblemes.Controls.Clear();
+            foreach (IndexedValue i in w.Perks) {
+                beneficesProblemes.Controls.Add(new IndexedValueView(i));
+            }
+
             foreach (IndexedValue i in w.Crises) {
-                beneficesProblemes.Items.Add(i.Name);
+                beneficesProblemes.Controls.Add(new IndexedValueView(i));
             }
 
             groupes.Items.Clear();
@@ -55,10 +59,8 @@ namespace BenouKaiss_Morax_IHM
                 groupes.Items.Add(i.Name);
             }
 
-            politiquesActives.Items.Clear();
-            w.Expenses.FindAll(p => p.Active != false).ForEach(p => politiquesActives.Items.Add(p));
-            politiquesDisponibles.Items.Clear();
-            w.Expenses.FindAll(p => p.Active == false && p.AvailableAt <= w.Turns).ForEach(p => politiquesDisponibles.Items.Add(p));
+            politiques.Controls.Clear();
+            w.Policies.ForEach(p => politiques.Controls.Add(new IndexedValueView(p)));
         }
         
         private void numéroTour_Click(object sender, EventArgs e) {
@@ -72,5 +74,6 @@ namespace BenouKaiss_Morax_IHM
         private void quitter_Click(object sender, EventArgs e) {
             Application.Exit();
         }
+        
     }
 }
