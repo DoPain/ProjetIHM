@@ -8,3 +8,14 @@
 \\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.Properties.Resources.resources
 \\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csproj.GenerateResource.Cache
 \\iut.bx1\Etudiants\Home\mbenoukaiss\Documents\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.IndexedValueView.resources
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.exe.config
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.exe
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.pdb
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csprojAssemblyReference.cache
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.IndexedValueView.resources
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.MainWindow.resources
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.Properties.Resources.resources
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csproj.GenerateResource.cache
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csproj.CoreCompileInputs.cache
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.exe
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.pdb

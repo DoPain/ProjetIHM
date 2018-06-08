@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,67 +9,93 @@ using System.Windows.Forms;
 using VivianeProject;
 
 namespace BenouKaiss_Morax_IHM {
-    public class IndexedValueView : GroupBox {
+    public class IndexedValueView : Control {
 
-        private IndexedValue indexedValue;
+        #region Properties & variables
+        private readonly IndexedValue indexedValue;
 
-        private Label description;
-        private Label valeurTexte;
-        private Label valeurValeur;
+        public int ArcThickness {
+            get; set;
+        } = 5;
 
-        public IndexedValueView(IndexedValue iv) {
-            indexedValue = iv;
-            
-            if (!iv.Active.GetValueOrDefault(true)) {
-                Enabled = false;
+        public DisplayTag[] Tags {
+            get; set;
+        } = { };
+
+        public Color ForegroundColor {
+            get; set;
+        } = Color.White;
+
+        public Color BackgroundColor {
+            get; set;
+        } = Color.DarkCyan;
+
+        public Color DisabledBackgroundColor {
+            get; set;
+        } = Color.DarkGray;
+        #endregion
+
+        public IndexedValueView(IndexedValue indexedValue, int w, int h, params DisplayTag[] tags) {
+            this.indexedValue = indexedValue;
+            this.Width = w + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
+            this.Height = h + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
+
+            if (tags.Length > 0) {
+                Tags = tags;
             }
+
+            this.DoubleBuffered = true;
+
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(this, indexedValue.Description);
+        }
+
+        public IndexedValueView(IndexedValue indexedValue, params DisplayTag[] tags) : this(indexedValue, 100, 100, tags) {
             
-            InitializeComponent();
         }
 
-        #region Initialisation
-        private void InitializeComponent() {
-            this.SuspendLayout();
+        protected override void OnPaint(PaintEventArgs e) {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // 
-            // IndexedValueView
-            // 
-            this.ResumeLayout(false);
-            this.Text = indexedValue.Name;
+            Rectangle geometry = new Rectangle(
+                ArcThickness / 2, ArcThickness / 2,
+                Width - ArcThickness, Height - ArcThickness
+            );
 
-            int availableWidth = this.Width - this.Padding.Left - this.Padding.Right;
+            Font titleFont = new Font("Arial", 8);
 
-            //
-            // description
-            //
-            this.description = new Label();
-            this.description.Text = indexedValue.Description;
-            this.description.Location = new Point(this.Padding.Left, 20);
-            this.description.AutoSize = true;
-            this.description.MaximumSize = new Size(availableWidth, 200);
-            Controls.Add(description);
+            StringFormat format = new StringFormat {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
 
-            //
-            // valeurTexte
-            //
-            this.valeurTexte = new Label();
-            this.valeurTexte.Text = "Valeur :";
-            this.valeurTexte.Location = new Point(this.Padding.Left, 5 + description.Location.Y + description.Height);
-            this.valeurTexte.AutoSize = true;
-            Controls.Add(valeurTexte);
+            g.FillEllipse(
+                new SolidBrush(indexedValue.Active.GetValueOrDefault(true)? BackgroundColor : DisabledBackgroundColor), 
+                geometry
+            );
+            g.DrawString(
+                indexedValue.Name,
+                titleFont, new SolidBrush(ForegroundColor), 
+                new Point(Width / 2, Height / 2), format
+            );
 
-            //
-            // valeurValeur
-            //
-            this.valeurValeur = new Label();
-            this.valeurValeur.Text = indexedValue.Value.ToString();
-            this.valeurValeur.Location = new Point(valeurTexte.Width, valeurTexte.Location.Y);
-            this.valeurValeur.Height = 15;
-            Controls.Add(valeurValeur);
+            if (Tags.Contains(DisplayTag.ShowArc)) {
+                g.DrawArc(
+                    new Pen(ForegroundColor, ArcThickness),
+                    geometry,
+                    -90,
+                    ((float)indexedValue.Value) / indexedValue.MaxValue * 360
+                );
+            }
 
-            this.Height = Padding.Top + description.Height + valeurTexte.Height + 30 + Padding.Bottom;
-            this.ResumeLayout();
+            if(Tags.Contains(DisplayTag.ShowValue)) {
+                g.DrawString(
+                    indexedValue.Value.ToString(),
+                    new Font("Arial", 7), new SolidBrush(ForegroundColor),
+                    new Point(Width / 2, Height / 2 + titleFont.Height + 5), format
+                );
+            }
         }
-        #endregion Initialisation
     }
 }

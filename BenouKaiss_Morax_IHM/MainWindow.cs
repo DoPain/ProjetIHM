@@ -43,15 +43,29 @@ namespace BenouKaiss_Morax_IHM
             gloireValeur.Text = w.Glory.ToString();
 
             indicateurs.Controls.Clear();
-            w.Indicators.FindAll(i => i.Active != false).ForEach(i => indicateurs.Controls.Add(new IndexedValueView(i)));
+            foreach(IndexedValue i in w.Indicators) {
+                indicateurs.Controls.Add(new IndexedValueView(
+                    i,
+                    DisplayTag.ShowValue, 
+                    DisplayTag.ShowArc
+                ));
+            }
 
             beneficesProblemes.Controls.Clear();
             foreach (IndexedValue i in w.Perks) {
-                beneficesProblemes.Controls.Add(new IndexedValueView(i));
+                beneficesProblemes.Controls.Add(new IndexedValueView(
+                    i,
+                    DisplayTag.ShowValue,
+                    DisplayTag.ShowArc
+                ));
             }
 
             foreach (IndexedValue i in w.Crises) {
-                beneficesProblemes.Controls.Add(new IndexedValueView(i));
+                beneficesProblemes.Controls.Add(new IndexedValueView(
+                    i,
+                    DisplayTag.ShowValue,
+                    DisplayTag.ShowArc
+                ));
             }
 
             groupes.Items.Clear();
@@ -60,7 +74,11 @@ namespace BenouKaiss_Morax_IHM
             }
 
             politiques.Controls.Clear();
-            w.Policies.ForEach(p => politiques.Controls.Add(new IndexedValueView(p)));
+            w.Policies.ForEach(i => politiques.Controls.Add(new IndexedValueView(
+                    i,
+                    DisplayTag.ShowValue,
+                    DisplayTag.ShowArc
+                )));
         }
         
         private void numéroTour_Click(object sender, EventArgs e) {
