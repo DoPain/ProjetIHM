@@ -46,8 +46,10 @@ namespace BenouKaiss_Morax_IHM
             foreach(IndexedValue i in w.Indicators) {
                 indicateurs.Controls.Add(new IndexedValueView(
                     i,
-                    DisplayTag.ShowValue, 
+                    this.w,
+                    DisplayTag.ShowValue,
                     DisplayTag.ShowArc
+                    
                 ));
             }
 
@@ -55,6 +57,7 @@ namespace BenouKaiss_Morax_IHM
             foreach (IndexedValue i in w.Perks) {
                 beneficesProblemes.Controls.Add(new IndexedValueView(
                     i,
+                    this.w,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                 ));
@@ -63,6 +66,7 @@ namespace BenouKaiss_Morax_IHM
             foreach (IndexedValue i in w.Crises) {
                 beneficesProblemes.Controls.Add(new IndexedValueView(
                     i,
+                    this.w,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                 ));
@@ -76,6 +80,7 @@ namespace BenouKaiss_Morax_IHM
             politiques.Controls.Clear();
             w.Policies.ForEach(i => politiques.Controls.Add(new IndexedValueView(
                     i,
+                    this.w,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                 )));

@@ -19,3 +19,14 @@ F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.cspr
 F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csproj.CoreCompileInputs.cache
 F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.exe
 F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.pdb
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.exe.config
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.exe
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.pdb
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.exe
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\bin\Debug\BenouKaiss_Morax_IHM.pdb
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csprojResolveAssemblyReference.cache
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.MainWindow.resources
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.IndexedValueView.resources
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.Properties.Resources.resources
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.valueExplorer.resources
+\\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csproj.GenerateResource.Cache

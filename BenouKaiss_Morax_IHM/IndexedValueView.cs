@@ -13,6 +13,7 @@ namespace BenouKaiss_Morax_IHM {
 
         #region Properties & variables
         private readonly IndexedValue indexedValue;
+        WorldState theWorld;
 
         public int ArcThickness {
             get; set;
@@ -33,13 +34,14 @@ namespace BenouKaiss_Morax_IHM {
         public Color DisabledBackgroundColor {
             get; set;
         } = Color.DarkGray;
+
         #endregion
 
-        public IndexedValueView(IndexedValue indexedValue, int w, int h, params DisplayTag[] tags) {
+        public IndexedValueView(IndexedValue indexedValue, int w, int h, WorldState wo, params DisplayTag[] tags) {
             this.indexedValue = indexedValue;
             this.Width = w + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
             this.Height = h + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
-
+            this.theWorld = wo;
             if (tags.Length > 0) {
                 Tags = tags;
             }
@@ -50,7 +52,7 @@ namespace BenouKaiss_Morax_IHM {
             tt.SetToolTip(this, indexedValue.Description);
         }
 
-        public IndexedValueView(IndexedValue indexedValue, params DisplayTag[] tags) : this(indexedValue, 100, 100, tags) {
+        public IndexedValueView(IndexedValue indexedValue, WorldState wo, params DisplayTag[] tags) : this(indexedValue, 100, 100, wo, tags) {
             
         }
 
@@ -96,6 +98,12 @@ namespace BenouKaiss_Morax_IHM {
                     new Point(Width / 2, Height / 2 + titleFont.Height + 5), format
                 );
             }
+        }
+
+        protected override void OnMouseDoubleClick(MouseEventArgs e) 
+        {
+        ValueExplorer infos = new ValueExplorer(indexedValue, theWorld);
+        infos.Show();
         }
     }
 }
