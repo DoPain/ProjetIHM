@@ -13,7 +13,11 @@ namespace BenouKaiss_Morax_IHM {
 
         #region Properties & variables
         private readonly IndexedValue indexedValue;
-        WorldState theWorld;
+        private readonly WorldState theWorld;
+
+        public bool Mutable {
+            get; set;
+        }
 
         public int ArcThickness {
             get; set;
@@ -37,22 +41,23 @@ namespace BenouKaiss_Morax_IHM {
 
         #endregion
 
-        public IndexedValueView(IndexedValue indexedValue, int w, int h, WorldState wo, params DisplayTag[] tags) {
+        public IndexedValueView(IndexedValue indexedValue, int w, int h, WorldState wo, bool mutable, params DisplayTag[] tags) {
             this.indexedValue = indexedValue;
+            this.theWorld = wo;
+
             this.Width = w + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
             this.Height = h + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
-            this.theWorld = wo;
-            if (tags.Length > 0) {
-                Tags = tags;
-            }
+            this.Mutable = mutable;
+            this.Tags = tags;
 
             this.DoubleBuffered = true;
 
             ToolTip tt = new ToolTip();
             tt.SetToolTip(this, indexedValue.Description);
+            this.Anchor = AnchorStyles.None;
         }
 
-        public IndexedValueView(IndexedValue indexedValue, WorldState wo, params DisplayTag[] tags) : this(indexedValue, 100, 100, wo, tags) {
+        public IndexedValueView(IndexedValue indexedValue, WorldState wo, bool mutable, params DisplayTag[] tags) : this(indexedValue, 100, 100, wo, mutable, tags) {
             
         }
 
@@ -65,7 +70,7 @@ namespace BenouKaiss_Morax_IHM {
                 Width - ArcThickness, Height - ArcThickness
             );
 
-            Font titleFont = new Font("Arial", 8);
+            Font titleFont = new Font("Arial", 7);
 
             StringFormat format = new StringFormat {
                 Alignment = StringAlignment.Center,
@@ -94,16 +99,40 @@ namespace BenouKaiss_Morax_IHM {
             if(Tags.Contains(DisplayTag.ShowValue)) {
                 g.DrawString(
                     indexedValue.Value.ToString(),
-                    new Font("Arial", 7), new SolidBrush(ForegroundColor),
+                    new Font("Arial", 6), new SolidBrush(ForegroundColor),
                     new Point(Width / 2, Height / 2 + titleFont.Height + 5), format
                 );
             }
         }
 
-        protected override void OnMouseDoubleClick(MouseEventArgs e) 
-        {
-        ValueExplorer infos = new ValueExplorer(indexedValue, theWorld);
-        infos.Show();
+        protected override void OnMouseDoubleClick(MouseEventArgs e) {
+            if(!Mutable) return;
+
+            ValueExplorer infos = new ValueExplorer(indexedValue);
+
+            if(infos.ShowDialog() == DialogResult.OK) {
+                int amount = infos.getValue();
+                int mCost = 0, gCost = 0;
+
+                if (amount == 0) {
+                    theWorld.DeactivatePolicy(indexedValue, out mCost, out gCost);
+                }
+
+                indexedValue.PreviewPolicyChange(ref amount, out mCost, out gCost);
+
+                if (gCost < 0) {
+                    if (theWorld.CostGlory(gCost)) {
+                        indexedValue.ChangeTo(amount, out mCost, out gCost);
+
+                    }
+                }
+
+                indexedValue.ChangeTo(amount, out mCost, out gCost);
+
+                Refresh();
+                Console.Write(indexedValue.Value);
+            }
         }
+        
     }
 }

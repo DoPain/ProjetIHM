@@ -11,59 +11,41 @@ using VivianeProject;
 
 namespace BenouKaiss_Morax_IHM
 {
-    public partial class ValueExplorer : Form
-    {
-        IndexedValue v;
-        WorldState theWorld;
+    public partial class ValueExplorer : Form {
 
-        public ValueExplorer(IndexedValue v,WorldState w )
-        {
+        private IndexedValue v;
+        private int value;
+
+        public ValueExplorer(IndexedValue v) {
+            this.v = v;
+            this.value = v.Value;
+
             InitializeComponent();
             this.Decription.Text = v.Description;
             this.valeur.Text = v.Value.ToString();
-            this.v = v;
-            this.theWorld = w;
         }
 
-        private void plus_Click(object sender, MouseEventArgs e)
-        {
-            valeur.Text = (int.Parse(valeur.Text) + 1).ToString();
+        public int getValue() {
+            return this.value;
         }
 
-        private void moins_Click(object sender, MouseEventArgs e)
-        {
-            valeur.Text = (int.Parse(valeur.Text) - 1).ToString();
+        private void plus_Click(object sender, MouseEventArgs e) {
+            valeur.Text = (++this.value).ToString();
         }
 
-        private void annuler_MouseClick(object sender, MouseEventArgs e)
-        {
+        private void moins_Click(object sender, MouseEventArgs e) {
+            valeur.Text = (--this.value).ToString();
+        }
+
+        private void annuler_MouseClick(object sender, MouseEventArgs e) {
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void ok_Click(object sender, EventArgs e)
-        {
-            int amount = -1;
-            int mCost = 0, gCost = 0;
-            if (amount == 0)
-            {
-                theWorld.DeactivatePolicy(v, out mCost, out gCost);
-
-            }
-            v.PreviewPolicyChange(ref amount, out mCost, out gCost);
-            if (gCost < 0)
-            {
-                if (theWorld.CostGlory(gCost))
-                {
-                    v.ChangeTo(amount, out mCost, out gCost);
-
-                }
-            }
-            v.ChangeTo(amount, out mCost, out gCost);
-        
-
+        private void ok_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.OK;
             this.Close();
         }
+
     }
 }

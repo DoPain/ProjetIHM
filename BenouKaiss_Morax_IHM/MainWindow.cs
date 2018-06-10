@@ -21,12 +21,7 @@ namespace BenouKaiss_Morax_IHM
             InitializeComponent();
             refresh();
         }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void tourSuivant_Click(object sender, EventArgs e)
         {
             w.NextTurn();
@@ -45,8 +40,8 @@ namespace BenouKaiss_Morax_IHM
             indicateurs.Controls.Clear();
             foreach(IndexedValue i in w.Indicators) {
                 indicateurs.Controls.Add(new IndexedValueView(
-                    i,
-                    this.w,
+                    i, 70, 70, 
+                    this.w, false,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                     
@@ -55,34 +50,45 @@ namespace BenouKaiss_Morax_IHM
 
             beneficesProblemes.Controls.Clear();
             foreach (IndexedValue i in w.Perks) {
-                beneficesProblemes.Controls.Add(new IndexedValueView(
-                    i,
-                    this.w,
-                    DisplayTag.ShowValue,
-                    DisplayTag.ShowArc
-                ));
+                if (i.Active.GetValueOrDefault(true)) {
+                    beneficesProblemes.Controls.Add(new IndexedValueView(
+                        i, 110, 110, 
+                        this.w, false,
+                        DisplayTag.ShowValue,
+                        DisplayTag.ShowArc
+                    ) {
+                        BackgroundColor = Color.Green
+                    });
+                }
             }
 
             foreach (IndexedValue i in w.Crises) {
-                beneficesProblemes.Controls.Add(new IndexedValueView(
+                if (i.Active.GetValueOrDefault(true)) {
+                    beneficesProblemes.Controls.Add(new IndexedValueView(
+                        i, this.w, false,
+                        DisplayTag.ShowValue,
+                        DisplayTag.ShowArc
+                    ) {
+                        BackgroundColor = Color.Red
+                    });
+                }
+            }
+
+            groupes.Controls.Clear();
+            foreach (IndexedValue i in w.Groups) {
+                groupes.Controls.Add(new IndexedValueView(
                     i,
-                    this.w,
+                    this.w, false,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                 ));
-            }
-
-            groupes.Items.Clear();
-            foreach (IndexedValue i in w.Groups) {
-                groupes.Items.Add(i.Name);
             }
 
             politiques.Controls.Clear();
             w.Policies.ForEach(i => politiques.Controls.Add(new IndexedValueView(
                     i,
-                    this.w,
-                    DisplayTag.ShowValue,
-                    DisplayTag.ShowArc
+                    this.w, true,
+                    DisplayTag.ShowValue
                 )));
         }
         
@@ -98,5 +104,8 @@ namespace BenouKaiss_Morax_IHM
             Application.Exit();
         }
         
+        protected void MainWindow_Paint(object sender, PaintEventArgs p) {
+            Console.WriteLine(Width + " " + Height);
+        }
     }
 }
