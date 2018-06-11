@@ -16,6 +16,8 @@ namespace BenouKaiss_Morax_IHM
 
         private WorldState w = new WorldState(WorldState.Difficulty.Easy, "..\\..\\Logres.xml");
 
+        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -25,8 +27,24 @@ namespace BenouKaiss_Morax_IHM
         
         private void tourSuivant_Click(object sender, EventArgs e)
         {
+            
             w.NextTurn();
             refresh();
+
+            foreach (IndexedValue v in w.Crises)
+            {
+
+                if (v.Active == true)
+                {
+                    if (!(w.CrisesA.Contains(v)))
+                    {
+                        w.CrisesA.Add(v);
+                        String text = "Attention vous êtes en pleines crise! : " + v.Name;
+                        String caption = "Crise en cours";
+                        MessageBox.Show(text, caption, MessageBoxButtons.OK);
+                    }
+                }
+            }
 
             if (w.Finished()) {
                 tourSuivant.Enabled = false;

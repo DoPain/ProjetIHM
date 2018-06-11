@@ -24,6 +24,7 @@ namespace VivianeProject
         private List<IndexedValue> perks = new List<IndexedValue>();
         private List<IndexedValue> crises = new List<IndexedValue>();
         private List<List<string>> valuesLog = new List<List<string>>();
+        private List<IndexedValue> crisesA = new List<IndexedValue>();
         private int glory = 0;
         private int money = 0;
         #endregion
@@ -50,6 +51,7 @@ namespace VivianeProject
         }
         public List<IndexedValue> Perks { get { return perks; } }
         public List<IndexedValue> Crises { get { return crises; } }
+        public List<IndexedValue> CrisesA { get { return crisesA; } }
         public List<List<string>> ValuesLog { get { return valuesLog; } }
         public int Glory { get { return glory; } }
         public int Money { get { return money; } }
