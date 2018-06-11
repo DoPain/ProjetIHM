@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using VivianeProject;
 
 namespace BenouKaiss_Morax_IHM {
-    public class IndexedValueView : Control {
+    internal class IndexedValueView : Control {
 
         #region Properties & variables
         private readonly IndexedValue indexedValue;
@@ -46,7 +46,7 @@ namespace BenouKaiss_Morax_IHM {
             this.theWorld = wo;
 
             this.Width = w + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
-            this.Height = h + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
+            this.Height = h / ((indexedValue.Type != IndexedValue.ValueType.Policy) ? 1 : 2) + ((ArcThickness % 2 == 0) ? ArcThickness : ArcThickness - 1);
             this.Mutable = mutable;
             this.Tags = tags;
 
@@ -77,10 +77,21 @@ namespace BenouKaiss_Morax_IHM {
                 LineAlignment = StringAlignment.Center
             };
 
-            g.FillEllipse(
-                new SolidBrush(indexedValue.Active.GetValueOrDefault(true)? BackgroundColor : DisabledBackgroundColor), 
-                geometry
-            );
+            if (indexedValue.Type != IndexedValue.ValueType.Policy) {
+                g.FillEllipse(
+                    new SolidBrush(indexedValue.Active.GetValueOrDefault(true) || indexedValue.AvailableAt <= theWorld.Turns
+                    ? BackgroundColor
+                    : DisabledBackgroundColor),
+                    geometry
+                );
+            } else {
+                g.FillRectangle(
+                    new SolidBrush(indexedValue.Active.GetValueOrDefault(true) || indexedValue.AvailableAt <= theWorld.Turns
+                        ? BackgroundColor
+                        : DisabledBackgroundColor),
+                    geometry
+                );
+            }
             g.DrawString(
                 indexedValue.Name,
                 titleFont, new SolidBrush(ForegroundColor), 
@@ -106,7 +117,7 @@ namespace BenouKaiss_Morax_IHM {
         }
 
         protected override void OnMouseDoubleClick(MouseEventArgs e) {
-            if(!Mutable) return;
+            if(!Mutable || !(indexedValue.Active.GetValueOrDefault(true) || indexedValue.AvailableAt <= theWorld.Turns)) return;
 
             ValueExplorer infos = new ValueExplorer(indexedValue);
 
@@ -120,17 +131,19 @@ namespace BenouKaiss_Morax_IHM {
 
                 indexedValue.PreviewPolicyChange(ref amount, out mCost, out gCost);
 
+                if (MessageBox.Show($"Cette politique va désormais coûter {mCost} de monnaie et {gCost} de gloire par tour.", 
+                                    "Modifications", 
+                                    MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+                
                 if (gCost < 0) {
                     if (theWorld.CostGlory(gCost)) {
                         indexedValue.ChangeTo(amount, out mCost, out gCost);
-
                     }
                 }
 
                 indexedValue.ChangeTo(amount, out mCost, out gCost);
 
-                Refresh();
-                Console.Write(indexedValue.Value);
+                this.Refresh();
             }
         }
         

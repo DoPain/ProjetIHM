@@ -19,6 +19,7 @@ namespace BenouKaiss_Morax_IHM
         public MainWindow()
         {
             InitializeComponent();
+            this.Size = new System.Drawing.Size(820, 573);
             refresh();
         }
         
@@ -27,7 +28,7 @@ namespace BenouKaiss_Morax_IHM
             w.NextTurn();
             refresh();
 
-            if(w.Finished()) {
+            if (w.Finished()) {
                 tourSuivant.Enabled = false;
             }
         }
@@ -40,11 +41,10 @@ namespace BenouKaiss_Morax_IHM
             indicateurs.Controls.Clear();
             foreach(IndexedValue i in w.Indicators) {
                 indicateurs.Controls.Add(new IndexedValueView(
-                    i, 70, 70, 
+                    i, 70, 70,
                     this.w, false,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
-                    
                 ));
             }
 
@@ -77,7 +77,7 @@ namespace BenouKaiss_Morax_IHM
             groupes.Controls.Clear();
             foreach (IndexedValue i in w.Groups) {
                 groupes.Controls.Add(new IndexedValueView(
-                    i,
+                    i, 70, 70,
                     this.w, false,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
@@ -86,10 +86,10 @@ namespace BenouKaiss_Morax_IHM
 
             politiques.Controls.Clear();
             w.Policies.ForEach(i => politiques.Controls.Add(new IndexedValueView(
-                    i,
-                    this.w, true,
-                    DisplayTag.ShowValue
-                )));
+                        i,
+                        this.w, true,
+                        DisplayTag.ShowValue
+                    )));
         }
         
         private void numéroTour_Click(object sender, EventArgs e) {
