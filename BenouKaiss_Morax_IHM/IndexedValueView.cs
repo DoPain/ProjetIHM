@@ -146,6 +146,20 @@ namespace BenouKaiss_Morax_IHM {
                 this.Refresh();
             }
         }
+
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+
+            if (indexedValue.Active == true)
+            {
+                if (indexedValue.Type == IndexedValue.ValueType.Indicator || indexedValue.Type == IndexedValue.ValueType.Group || indexedValue.Type == IndexedValue.ValueType.Perk || indexedValue.Type == IndexedValue.ValueType.Crisis)
+                {
+                    String text = "Description de l'indicateur sélectionné : " + indexedValue.CompletePresentation();
+                    String caption = indexedValue.Name;
+                    MessageBox.Show(text, caption, MessageBoxButtons.OK);
+                }            
+         }
+      }
+   }
         
-    }
 }

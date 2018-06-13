@@ -38,33 +38,32 @@
             this.moinsCinq = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.plusCinq = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // Decription
             // 
-            this.Decription.Location = new System.Drawing.Point(31, 74);
-            this.Decription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Decription.Location = new System.Drawing.Point(21, 48);
             this.Decription.Name = "Decription";
-            this.Decription.Size = new System.Drawing.Size(499, 119);
+            this.Decription.Size = new System.Drawing.Size(333, 77);
             this.Decription.TabIndex = 0;
             this.Decription.Text = "?";
             // 
             // valeurLabel
             // 
-            this.valeurLabel.Location = new System.Drawing.Point(184, 209);
-            this.valeurLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.valeurLabel.Location = new System.Drawing.Point(123, 136);
             this.valeurLabel.Name = "valeurLabel";
-            this.valeurLabel.Size = new System.Drawing.Size(186, 34);
+            this.valeurLabel.Size = new System.Drawing.Size(124, 22);
             this.valeurLabel.TabIndex = 1;
             this.valeurLabel.Text = "?";
             this.valeurLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // plus
             // 
-            this.plus.Location = new System.Drawing.Point(315, 249);
-            this.plus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.plus.Location = new System.Drawing.Point(210, 162);
             this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(32, 34);
+            this.plus.Size = new System.Drawing.Size(21, 22);
             this.plus.TabIndex = 2;
             this.plus.Text = "+";
             this.plus.UseVisualStyleBackColor = true;
@@ -72,10 +71,9 @@
             // 
             // moins
             // 
-            this.moins.Location = new System.Drawing.Point(209, 248);
-            this.moins.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.moins.Location = new System.Drawing.Point(139, 161);
             this.moins.Name = "moins";
-            this.moins.Size = new System.Drawing.Size(33, 34);
+            this.moins.Size = new System.Drawing.Size(22, 22);
             this.moins.TabIndex = 3;
             this.moins.Text = "-";
             this.moins.UseVisualStyleBackColor = true;
@@ -83,42 +81,40 @@
             // 
             // annuler
             // 
-            this.annuler.Location = new System.Drawing.Point(35, 346);
-            this.annuler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.annuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.annuler.Location = new System.Drawing.Point(23, 225);
             this.annuler.Name = "annuler";
-            this.annuler.Size = new System.Drawing.Size(112, 35);
+            this.annuler.Size = new System.Drawing.Size(75, 23);
             this.annuler.TabIndex = 4;
             this.annuler.Text = "Annuler";
             this.annuler.UseVisualStyleBackColor = true;
-            this.annuler.MouseClick += new System.Windows.Forms.MouseEventHandler(this.annuler_MouseClick);
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(418, 346);
-            this.ok.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ok.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.ok.Location = new System.Drawing.Point(279, 225);
             this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(112, 35);
+            this.ok.Size = new System.Drawing.Size(75, 23);
             this.ok.TabIndex = 5;
             this.ok.Text = "OK";
             this.ok.UseVisualStyleBackColor = true;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // nom
             // 
             this.nom.AutoSize = true;
             this.nom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nom.Location = new System.Drawing.Point(31, 26);
+            this.nom.Location = new System.Drawing.Point(21, 17);
+            this.nom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nom.Name = "nom";
-            this.nom.Size = new System.Drawing.Size(31, 32);
+            this.nom.Size = new System.Drawing.Size(20, 24);
             this.nom.TabIndex = 6;
             this.nom.Text = "?";
             // 
             // moinsCinq
             // 
-            this.moinsCinq.Location = new System.Drawing.Point(161, 248);
-            this.moinsCinq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.moinsCinq.Location = new System.Drawing.Point(107, 161);
             this.moinsCinq.Name = "moinsCinq";
-            this.moinsCinq.Size = new System.Drawing.Size(40, 34);
+            this.moinsCinq.Size = new System.Drawing.Size(27, 22);
             this.moinsCinq.TabIndex = 7;
             this.moinsCinq.Text = "-5";
             this.moinsCinq.UseVisualStyleBackColor = true;
@@ -126,10 +122,9 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(250, 249);
-            this.reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.reset.Location = new System.Drawing.Point(167, 162);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(57, 34);
+            this.reset.Size = new System.Drawing.Size(38, 22);
             this.reset.TabIndex = 9;
             this.reset.Text = "?";
             this.reset.UseVisualStyleBackColor = true;
@@ -137,20 +132,28 @@
             // 
             // plusCinq
             // 
-            this.plusCinq.Location = new System.Drawing.Point(355, 248);
-            this.plusCinq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.plusCinq.Location = new System.Drawing.Point(237, 161);
             this.plusCinq.Name = "plusCinq";
-            this.plusCinq.Size = new System.Drawing.Size(40, 34);
+            this.plusCinq.Size = new System.Drawing.Size(27, 22);
             this.plusCinq.TabIndex = 10;
             this.plusCinq.Text = "+5";
             this.plusCinq.UseVisualStyleBackColor = true;
             this.plusCinq.Click += new System.EventHandler(this.plusCinq_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(126, 190);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 11;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // ValueExplorer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 404);
+            this.ClientSize = new System.Drawing.Size(378, 263);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.plusCinq);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.moinsCinq);
@@ -161,9 +164,9 @@
             this.Controls.Add(this.plus);
             this.Controls.Add(this.valeurLabel);
             this.Controls.Add(this.Decription);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ValueExplorer";
             this.Text = "ValueExplorer";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +184,6 @@
         private System.Windows.Forms.Button moinsCinq;
         private System.Windows.Forms.Button reset;
         private System.Windows.Forms.Button plusCinq;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

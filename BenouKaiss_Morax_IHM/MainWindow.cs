@@ -125,5 +125,6 @@ namespace BenouKaiss_Morax_IHM
         protected void MainWindow_Paint(object sender, PaintEventArgs p) {
             Console.WriteLine(Width + " " + Height);
         }
+
     }
 }

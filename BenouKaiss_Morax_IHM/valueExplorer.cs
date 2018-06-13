@@ -21,6 +21,7 @@ namespace BenouKaiss_Morax_IHM
             this.valeur = v.Value;
 
             InitializeComponent();
+            this.numericUpDown1.Value = v.Value;
             this.nom.Text = v.Name;
             this.Decription.Text = v.Description;
             this.valeurLabel.Text = v.Value.ToString();
@@ -55,18 +56,15 @@ namespace BenouKaiss_Morax_IHM
             valeurLabel.Text = indexedValue.Value.ToString();
         }
 
-        private void annuler_MouseClick(object sender, MouseEventArgs e) {
-            DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void ok_Click(object sender, EventArgs e) {
-            DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
         private void actualiserValeur() {
             this.valeurLabel.Text = valeur.ToString();
+            this.numericUpDown1.Value = valeur;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            valeurLabel.Text = numericUpDown1.Value.ToString();
+            this.valeur = (int)numericUpDown1.Value;
         }
     }
 }
