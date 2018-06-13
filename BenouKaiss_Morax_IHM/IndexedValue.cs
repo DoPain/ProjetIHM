@@ -86,6 +86,9 @@ namespace VivianeProject
         }
         #endregion
         #region XML-based constructor
+
+        
+
         public IndexedValue(XElement element)
         {
             if (element.Name.ToString() != "iValue") return;
@@ -304,6 +307,36 @@ namespace VivianeProject
             }
             pres += "Actuellement " + ((Active != false) ? "en action" : "hors action");
             return pres;
+        }
+
+        public override bool Equals(object obj) {
+            var value = obj as IndexedValue;
+            return value != null &&
+                   Result == value.Result &&
+                   Type == value.Type &&
+                   EqualityComparer<bool?>.Default.Equals(Active, value.Active) &&
+                   EqualityComparer<int?>.Default.Equals(activationThreshold, value.activationThreshold) &&
+                   EqualityComparer<int?>.Default.Equals(deactivationThreshold, value.deactivationThreshold) &&
+                   EqualityComparer<int?>.Default.Equals(AvailableAt, value.AvailableAt) &&
+                   minValue == value.minValue &&
+                   maxValue == value.maxValue &&
+                   actualValue == value.actualValue &&
+                   currentInfluence == value.currentInfluence &&
+                   EqualityComparer<int?>.Default.Equals(MoneyAmount, value.MoneyAmount) &&
+                   EqualityComparer<int?>.Default.Equals(GloryAmount, value.GloryAmount) &&
+                   EqualityComparer<Func<double, double>>.Default.Equals(cost, value.cost) &&
+                   EqualityComparer<Func<double, double>>.Default.Equals(effect, value.effect) &&
+                   EqualityComparer<Func<double, double>>.Default.Equals(Cost, value.Cost) &&
+                   EqualityComparer<Func<double, double>>.Default.Equals(Effect, value.Effect) &&
+                   Name == value.Name &&
+                   Description == value.Description &&
+                   EqualityComparer<Dictionary<IndexedValue, double>>.Default.Equals(OutputWeights, value.OutputWeights) &&
+                   Value == value.Value &&
+                   Impact == value.Impact &&
+                   MoneyImpacted == value.MoneyImpacted &&
+                   GloryImpacted == value.GloryImpacted &&
+                   MinValue == value.MinValue &&
+                   MaxValue == value.MaxValue;
         }
         #endregion
     }

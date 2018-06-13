@@ -31,3 +31,4 @@ F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.pdb
 \\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.valueExplorer.resources
 \\iut.bx1\Etudiants\Home\dmorax\Documents\Semestre2_Redoublant\IHM\Projet\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.csproj.GenerateResource.Cache
 F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.ValueExplorer.resources
+F:\cours\ihm\Projet_IHM\BenouKaiss_Morax_IHM\obj\Debug\BenouKaiss_Morax_IHM.Menu.resources

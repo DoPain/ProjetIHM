@@ -212,21 +212,16 @@ namespace VivianeProject
             return Console.In.ReadLine().ToLower().Equals("oui");
         }
         public static void LoseDialog(IndexedValue indexedValue) {
-            var thread = new Thread(
-                () => {
-                    if (indexedValue == null) {
-                        MessageBox.Show("Partie perdue : dette insurmontable.", "Perdu");
-                    } else {
-                        MessageBox.Show("Partie perdue :" +
-                         indexedValue.CompletePresentation());
-                    }
-                });
-
-            thread.Start();
+            if (indexedValue == null) {
+                MessageBox.Show("Partie perdue : dette insurmontable.", "Perdu");
+            } else {
+                MessageBox.Show("Partie perdue :" +
+                indexedValue.CompletePresentation());
+            }
         }
         public static void WinDialog()
         {
-            Console.WriteLine("Partie gagnee.");
+            MessageBox.Show("Partie gagnée.");
         }
         public static void ApplyPolicyChanges(string arg)
         {

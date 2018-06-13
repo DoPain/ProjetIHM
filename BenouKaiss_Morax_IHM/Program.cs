@@ -16,7 +16,14 @@ namespace BenouKaiss_Morax_IHM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+
+            Menu m = new Menu();
+            Application.Run(m);
+
+            if (m.DialogResult == DialogResult.OK) {
+                if (m.ToursLimités) Application.Run(new MainWindow(m.Difficulté, m.ToursMaximum));
+                else Application.Run(new MainWindow(m.Difficulté));
+            }
         }
     }
 }

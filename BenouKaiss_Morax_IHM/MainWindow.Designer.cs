@@ -65,53 +65,51 @@ namespace BenouKaiss_Morax_IHM {
             this.tourSuivant});
             this.informations.Location = new System.Drawing.Point(0, 0);
             this.informations.Name = "informations";
-            this.informations.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.informations.Size = new System.Drawing.Size(342, 25);
+            this.informations.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.informations.Size = new System.Drawing.Size(511, 32);
             this.informations.TabIndex = 0;
             this.informations.Text = "toolStrip1";
             // 
             // tourTexte
             // 
             this.tourTexte.Name = "tourTexte";
-            this.tourTexte.Size = new System.Drawing.Size(102, 22);
+            this.tourTexte.Size = new System.Drawing.Size(155, 29);
             this.tourTexte.Text = "Numéro du tour : ";
             // 
             // tourValeur
             // 
             this.tourValeur.Name = "tourValeur";
-            this.tourValeur.Size = new System.Drawing.Size(12, 22);
+            this.tourValeur.Size = new System.Drawing.Size(20, 29);
             this.tourValeur.Text = "?";
-            this.tourValeur.Click += new System.EventHandler(this.numéroTour_Click);
             // 
             // financesTexte
             // 
             this.financesTexte.Name = "financesTexte";
-            this.financesTexte.Size = new System.Drawing.Size(62, 22);
+            this.financesTexte.Size = new System.Drawing.Size(93, 29);
             this.financesTexte.Text = "Finances : ";
             // 
             // financesValeur
             // 
             this.financesValeur.Name = "financesValeur";
-            this.financesValeur.Size = new System.Drawing.Size(12, 22);
+            this.financesValeur.Size = new System.Drawing.Size(20, 29);
             this.financesValeur.Text = "?";
             // 
             // gloireTexte
             // 
             this.gloireTexte.Name = "gloireTexte";
-            this.gloireTexte.Size = new System.Drawing.Size(47, 22);
+            this.gloireTexte.Size = new System.Drawing.Size(72, 29);
             this.gloireTexte.Text = "Gloire : ";
             // 
             // gloireValeur
             // 
             this.gloireValeur.Name = "gloireValeur";
-            this.gloireValeur.Size = new System.Drawing.Size(12, 22);
+            this.gloireValeur.Size = new System.Drawing.Size(20, 29);
             this.gloireValeur.Text = "?";
-            this.gloireValeur.Click += new System.EventHandler(this.gloire_Click);
             // 
             // separateur
             // 
             this.separateur.Name = "separateur";
-            this.separateur.Size = new System.Drawing.Size(6, 25);
+            this.separateur.Size = new System.Drawing.Size(6, 32);
             // 
             // tourSuivant
             // 
@@ -119,7 +117,7 @@ namespace BenouKaiss_Morax_IHM {
             this.tourSuivant.Image = ((System.Drawing.Image)(resources.GetObject("tourSuivant.Image")));
             this.tourSuivant.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tourSuivant.Name = "tourSuivant";
-            this.tourSuivant.Size = new System.Drawing.Size(76, 22);
+            this.tourSuivant.Size = new System.Drawing.Size(111, 29);
             this.tourSuivant.Text = "Tour suivant";
             this.tourSuivant.Click += new System.EventHandler(this.tourSuivant_Click);
             // 
@@ -130,20 +128,20 @@ namespace BenouKaiss_Morax_IHM {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grid.AutoSize = true;
             this.grid.ColumnCount = 2;
-            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 509F));
+            this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 764F));
             this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.grid.Controls.Add(this.indicateursBox, 0, 1);
             this.grid.Controls.Add(this.beneficesProblemesBox, 0, 0);
             this.grid.Controls.Add(this.politiques, 0, 2);
             this.grid.Controls.Add(this.Grou, 1, 1);
-            this.grid.Location = new System.Drawing.Point(13, 46);
-            this.grid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grid.Location = new System.Drawing.Point(20, 71);
+            this.grid.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.grid.Name = "grid";
             this.grid.RowCount = 3;
-            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 171F));
-            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 350F));
+            this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.grid.Size = new System.Drawing.Size(711, 463);
+            this.grid.Size = new System.Drawing.Size(1066, 768);
             this.grid.TabIndex = 1;
             // 
             // indicateursBox
@@ -152,11 +150,11 @@ namespace BenouKaiss_Morax_IHM {
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.indicateursBox.Controls.Add(this.indicateurs);
-            this.indicateursBox.Location = new System.Drawing.Point(4, 176);
-            this.indicateursBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.indicateursBox.Location = new System.Drawing.Point(6, 358);
+            this.indicateursBox.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.indicateursBox.Name = "indicateursBox";
-            this.indicateursBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.indicateursBox.Size = new System.Drawing.Size(501, 105);
+            this.indicateursBox.Padding = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.indicateursBox.Size = new System.Drawing.Size(752, 161);
             this.indicateursBox.TabIndex = 9;
             this.indicateursBox.TabStop = false;
             this.indicateursBox.Text = "Indicateurs";
@@ -166,9 +164,10 @@ namespace BenouKaiss_Morax_IHM {
             this.indicateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.indicateurs.Location = new System.Drawing.Point(6, 19);
+            this.indicateurs.Location = new System.Drawing.Point(9, 29);
+            this.indicateurs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.indicateurs.Name = "indicateurs";
-            this.indicateurs.Size = new System.Drawing.Size(483, 77);
+            this.indicateurs.Size = new System.Drawing.Size(724, 117);
             this.indicateurs.TabIndex = 8;
             // 
             // beneficesProblemesBox
@@ -178,10 +177,11 @@ namespace BenouKaiss_Morax_IHM {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grid.SetColumnSpan(this.beneficesProblemesBox, 2);
             this.beneficesProblemesBox.Controls.Add(this.beneficesProblemes);
-            this.beneficesProblemesBox.Location = new System.Drawing.Point(3, 3);
+            this.beneficesProblemesBox.Location = new System.Drawing.Point(4, 5);
+            this.beneficesProblemesBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.beneficesProblemesBox.Name = "beneficesProblemesBox";
-            this.beneficesProblemesBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.beneficesProblemesBox.Size = new System.Drawing.Size(705, 165);
+            this.beneficesProblemesBox.Padding = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.beneficesProblemesBox.Size = new System.Drawing.Size(1058, 340);
             this.beneficesProblemesBox.TabIndex = 10;
             this.beneficesProblemesBox.TabStop = false;
             this.beneficesProblemesBox.Text = "Bénéfices et problèmes";
@@ -191,10 +191,10 @@ namespace BenouKaiss_Morax_IHM {
             this.beneficesProblemes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.beneficesProblemes.AutoScroll = true;
-            this.beneficesProblemes.Location = new System.Drawing.Point(6, 19);
+            this.beneficesProblemes.Location = new System.Drawing.Point(9, 29);
+            this.beneficesProblemes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.beneficesProblemes.Name = "beneficesProblemes";
-            this.beneficesProblemes.Size = new System.Drawing.Size(692, 126);
+            this.beneficesProblemes.Size = new System.Drawing.Size(1038, 290);
             this.beneficesProblemes.TabIndex = 0;
             // 
             // politiques
@@ -202,12 +202,11 @@ namespace BenouKaiss_Morax_IHM {
             this.politiques.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.politiques.AutoScroll = true;
             this.grid.SetColumnSpan(this.politiques, 2);
-            this.politiques.Location = new System.Drawing.Point(3, 296);
-            this.politiques.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.politiques.Location = new System.Drawing.Point(4, 542);
+            this.politiques.Margin = new System.Windows.Forms.Padding(4, 15, 4, 5);
             this.politiques.Name = "politiques";
-            this.politiques.Size = new System.Drawing.Size(705, 164);
+            this.politiques.Size = new System.Drawing.Size(1058, 221);
             this.politiques.TabIndex = 12;
             // 
             // Grou
@@ -216,11 +215,9 @@ namespace BenouKaiss_Morax_IHM {
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Grou.Controls.Add(this.groupes);
-            this.Grou.Location = new System.Drawing.Point(511, 173);
-            this.Grou.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Grou.Location = new System.Drawing.Point(767, 353);
             this.Grou.Name = "Grou";
-            this.Grou.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Grou.Size = new System.Drawing.Size(198, 111);
+            this.Grou.Size = new System.Drawing.Size(296, 171);
             this.Grou.TabIndex = 13;
             this.Grou.TabStop = false;
             this.Grou.Text = "Groupes";
@@ -230,22 +227,25 @@ namespace BenouKaiss_Morax_IHM {
             this.groupes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupes.Location = new System.Drawing.Point(11, 22);
+            this.groupes.Location = new System.Drawing.Point(16, 34);
+            this.groupes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupes.Name = "groupes";
-            this.groupes.Size = new System.Drawing.Size(182, 77);
+            this.groupes.Size = new System.Drawing.Size(272, 118);
             this.groupes.TabIndex = 13;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 520);
+            this.ClientSize = new System.Drawing.Size(1102, 856);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.informations);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "Kyriù";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainWindow_Paint);
             this.informations.ResumeLayout(false);
             this.informations.PerformLayout();
             this.grid.ResumeLayout(false);
