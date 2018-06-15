@@ -11,8 +11,6 @@ using VivianeProject;
 namespace BenouKaiss_Morax_IHM {
     internal class IndexedValueView : Control {
 
-        public enum Shape { Rectangle, Ellipse, EllipseWithArc }
-
         #region Propriétés et attributs
         private readonly IndexedValue indexedValue;
         private readonly WorldState theWorld;
@@ -86,16 +84,10 @@ namespace BenouKaiss_Morax_IHM {
                                     ? BackgroundColor
                                     : DisabledBackgroundColor);
 
-            if (indexedValue.Type == IndexedValue.ValueType.Perk || indexedValue.Type == IndexedValue.ValueType.Crisis) {
-                Point[] points = new Point[] {
-                    new Point(Width/2, 0), new Point(Width, Height/2), new Point(Width/2, Height), new Point(0, Height/2)
-                };
-
-                g.FillPolygon(background, points);
-            }  else if(indexedValue.Type == IndexedValue.ValueType.Policy) {
-                g.FillRectangle(background, geometry);
-            } else {
+            if(Tags.Contains(DisplayTag.EllipseShape)) {
                 g.FillEllipse(background, geometry);
+            } else {
+                g.FillRectangle(background, geometry);
             }
 
             g.DrawString(
@@ -104,7 +96,8 @@ namespace BenouKaiss_Morax_IHM {
                 new Point(Width / 2, Height / 2), format
             );
 
-            if (Tags.Contains(DisplayTag.ShowArc)) {
+            if (Tags.Contains(DisplayTag.EllipseShape) && Tags.Contains(DisplayTag.ShowArc) && 
+                (indexedValue.Active.GetValueOrDefault(true) || !Tags.Contains(DisplayTag.HideArcInactive))) {
                 g.DrawArc(
                     new Pen(ForegroundColor, ArcThickness),
                     geometry,
@@ -113,7 +106,7 @@ namespace BenouKaiss_Morax_IHM {
                 );
             }
 
-            if(Tags.Contains(DisplayTag.ShowValue)) {
+            if(Tags.Contains(DisplayTag.ShowValue) && (indexedValue.Active.GetValueOrDefault(true) || !Tags.Contains(DisplayTag.HideValueInactive))) {
                 g.DrawString(
                     indexedValue.Value.ToString(),
                     new Font("Arial", 6), new SolidBrush(ForegroundColor),
@@ -122,12 +115,17 @@ namespace BenouKaiss_Morax_IHM {
             }
 
             if (indexedValue.AvailableAt > theWorld.Turns) {
-                Brush b = new SolidBrush(Color.FromArgb(150, Color.Gray));
-
-                if (indexedValue.Type == IndexedValue.ValueType.Policy) {
-                    g.FillRectangle(b, 0, 0, Width, Height);
+                Brush b;
+                if (!Enabled) {
+                    b = new SolidBrush(Color.FromArgb(220, Color.Gray));
                 } else {
+                    b = new SolidBrush(Color.FromArgb(150, Color.Gray));
+                }
+
+                if (Tags.Contains(DisplayTag.EllipseShape)) {
                     g.FillEllipse(b, 0, 0, Width, Height);
+                } else {
+                    g.FillRectangle(b, 0, 0, Width, Height);
                 }
             }
         }
@@ -137,7 +135,7 @@ namespace BenouKaiss_Morax_IHM {
 
             if (indexedValue.AvailableAt.GetValueOrDefault(0) <= theWorld.Turns && indexedValue.Type == IndexedValue.ValueType.Policy) {
                 ValueExplorer infos = new ValueExplorer(theWorld, indexedValue);
-                
+
                 if (infos.ShowDialog() == DialogResult.OK) {
                     int amount = infos.Valeur;
                     int mCost = 0, gCost = 0;
@@ -177,7 +175,7 @@ namespace BenouKaiss_Morax_IHM {
         }
         
         protected override void OnMouseEnter(EventArgs e) {
-            if(!indexedValue.Active.GetValueOrDefault(true) || indexedValue.AvailableAt > theWorld.Turns) return;
+            if(indexedValue.AvailableAt > theWorld.Turns) return;
 
             if(FindForm() is MainWindow mw) {
                 mw.peindreLiens(indexedValue);

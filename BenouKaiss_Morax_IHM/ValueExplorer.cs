@@ -34,6 +34,17 @@ namespace BenouKaiss_Morax_IHM
             this.Decription.Text = v.CompletePresentation().Substring(v.CompletePresentation().IndexOf("\n")+1);
             this.champValeur.Value = v.Value;
             this.reset.Text = v.Value.ToString();
+
+            foreach(KeyValuePair<IndexedValue, double> pair in v.OutputWeights) {
+                listeValeursAffectées.Items.Add((pair.Value > 0 ? "Augmente " : "Diminue ") + pair.Key.Name);
+            }
+
+            int amount = Valeur;
+            int mCost = 0, gCost = 0;
+            indexedValue.PreviewPolicyChange(ref amount, out mCost, out gCost);
+
+            this.financesValeur.Text = mCost.ToString();
+            this.gloireValeur.Text = gCost.ToString();
         }
         #endregion, 
 
@@ -57,26 +68,30 @@ namespace BenouKaiss_Morax_IHM
         }
 
         private void historique_Click(object sender, EventArgs e) {
-            Form historique = new Form() {
-                Size = new Size(300, 300)
-            };
+            int turn = 0;
+            Dictionary<double, double> valeurs = new Dictionary<double, double>();
 
-            world.ValuesLog.ForEach(vl => vl.FindAll(v => v.Split(':')[0].ToLower().Equals(indexedValue.Name.ToLower())).ForEach(v => {
-                Console.Write(v + ", ");
-            }));
-
-            world.Values.FindAll(val => val.Name.ToLower().Equals(indexedValue.Name.ToLower())).ForEach(val => {
-                Console.WriteLine(val.ToString());
+            world.ValuesLog.ForEach(vl => {
+                vl.FindAll(v => v.Split(':')[0].ToLower().Equals(indexedValue.Name.ToLower())).ForEach(v => {
+                    valeurs.Add(turn, double.Parse(v.Split(':')[1]));
+                    turn++;
+                });
             });
 
-            Enabled = false;
-            historique.ShowDialog();
-            Enabled = true;
+            Form historique = new Graphique(new Size(300, 300), valeurs);
+            historique.Show();
         }
         #endregion
 
         private void actualiserValeur() {
             champValeur.Value = Valeur;
+
+            int amount = Valeur;
+            int mCost = 0, gCost = 0;
+            indexedValue.PreviewPolicyChange(ref amount, out mCost, out gCost);
+
+            this.financesValeur.Text = mCost.ToString();
+            this.gloireValeur.Text = gCost.ToString();
         }
     }
 }

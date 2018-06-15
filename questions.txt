@@ -1,0 +1,29 @@
+#Projet IHM
+
+##Questions
+1. Il y a une façon de gagner : avoir le Graal, et il y a deux façons de pedre : le Mordred, et quand il n'y a plus assez d'argent. La victoire et la dfaites sont déclenchées dans la fonction NextTurn de la classe WorldState.
+
+2. La propriété DefaultCommand correspond à la commande à exécuter lorsque l'utilisateur envoie une chaine de caractère "vide" (que des espaces).
+
+3. Non, il n'est pas possible de choisir une difficulté, elle est automatiquement en facile. Ca ne serait pas difficile, il suffirait de demander à l'utilisateur d'entrer la difficulté dans la fonction Main de la classe Program avec un appel à Console.ReadLine() et de convertir l'entrée de l'utilisateur en difficulté juste avant d'appeler le constructeur de WorldState.
+
+4. Ici, le nombre d'instances d'IndexedValue sont définies pour le fichier "Logres.xml" mais ce nombre peut varier en fonction du nombre d'IndexedValue définies dans le fichier de configuration.
+
+Nombre d'objets par classes instantiée par le projet :
+WorldState    : 1
+IndexedValue  : 46
+Les autres classes ne sont jamais instantiées car elles ne possèdent que des méthodes statiques.
+
+Multiplicités :
+Il y a 46 instances de IndexedValue dans une instance de WorldState, cependant, il y a plus de 46 références vers des objets IndexedValue dans WorldState car les objets IndexedValue sont contenus dans les listes correspondant à leur type (Policy, Perk, etc) et aussi dans la liste values regroupant toutes les IndexedValue.
+IndexedValue ne possède aucune référence d'un objet Worldstate.
+Il y a une référence (statique) vers un objet WorldState dans la classe GameControler		
+
+5. Maintenir une liste contenant toutes les valeurs plus une pour chacun des types de valeurs disponibles ne pose pas un grand problème de mémoire, en effet, les objets ne sont instantiés qu'une fois même si il y a plusieurs références vers ce dernier. Une référence n'étant que l'adresse de l'objet dans la mémoire, elle n'occupe qu'un octet supplémentaire, ce qui est négligeable sur les systèmes actuels.
+Cela pose effectivement des problèmes de redondance, cependant cette redondance permet aussi de clarifier et de réduire le code. Par exemples, dans la fonction NextTurn plusieurs calculs sont faits sur la liste values, et ne pas avoir cette liste multiplierait par 5 le nombre de lignes. Cependant ce problème peut être résolu en créant une fonction prenant en paramètre une fonction à appliquer sur tous les IndexedValue.
+
+Prototype de cette fonction :
+private void mapIndexedValues(Action<IndexedValue> action);
+
+Cette fonction peut être améliorée en permettant de n'appeller l'a fonction uniquement si l'IndexedValue répond à un prédicat :
+private void mapIndexedValues(Action<IndexedValue> action, Func<IndexedValue, bool> predicat)

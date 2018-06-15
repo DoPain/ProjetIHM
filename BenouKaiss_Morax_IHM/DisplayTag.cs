@@ -10,21 +10,22 @@ namespace BenouKaiss_Morax_IHM {
     /// Changes the way the indexed value is displayed
     /// </summary>
     public enum DisplayTag {
+
+        /// <summary>
+        /// Shows the indexed value as an ellipse.
+        /// It is a rectangle by default.
+        /// </summary>
+        EllipseShape,
         /// <summary>
         /// Shows the value as a number 
-        /// in the circle.
+        /// in the value view.
         /// </summary>
         ShowValue,
         /// <summary>
-        /// Show the value as an arc
-        /// around the circle.
+        /// Show the value as an arc around the 
+        /// circle if the value is displayed as a circle.
         /// </summary>
         ShowArc,
-        /// <summary>
-        /// Changes the background color
-        /// if the indexed value is inactive.
-        /// </summary>
-        SameColorInactive,
         /// <summary>
         /// Hides the number value if the
         /// indexed value is inactive

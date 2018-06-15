@@ -25,6 +25,7 @@ namespace BenouKaiss_Morax_IHM {
         private WorldState w;
         private int toursMaximum;
         private Dictionary<IndexedValue, IndexedValueView> views = new Dictionary<IndexedValue, IndexedValueView>();
+        private List<IndexedValue> crisesCommencées = new List<IndexedValue>();
         #endregion
 
         #region Constructeurs
@@ -47,8 +48,8 @@ namespace BenouKaiss_Morax_IHM {
             this.Refresh();
 
             foreach (IndexedValue v in w.Crises) {
-                if (v.Active == true && !(w.CrisesA.Contains(v))) {
-                    w.CrisesA.Add(v);
+                if (v.Active == true && !(crisesCommencées.Contains(v))) {
+                    crisesCommencées.Add(v);
                     String text = "Attention vous êtes en pleines crise! : " + v.Name;
                     MessageBox.Show(text, "Crise en cours", MessageBoxButtons.OK);
                 }
@@ -86,7 +87,6 @@ namespace BenouKaiss_Morax_IHM {
         }
 
         private void initialisation() {
-            views.Clear();
             tourValeur.Text = w.Turns.ToString();
             financesValeur.Text = w.Money.ToString();
             gloireValeur.Text = w.Glory.ToString();
@@ -96,6 +96,7 @@ namespace BenouKaiss_Morax_IHM {
                 IndexedValueView ivv = new IndexedValueView(
                     i, 70, 70,
                     this.w, false,
+                    DisplayTag.EllipseShape,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                 );
@@ -106,33 +107,30 @@ namespace BenouKaiss_Morax_IHM {
 
             beneficesProblemes.Controls.Clear();
             foreach (IndexedValue i in w.Perks) {
-                //if (i.Active.GetValueOrDefault(true)) {
-                    IndexedValueView ivv = new IndexedValueView(
-                        i, 110, 50,
-                        this.w, false,
-                        DisplayTag.ShowValue
-                    ) {
-                        BackgroundColor = Color.Green
-                    };
+                IndexedValueView ivv = new IndexedValueView(
+                    i, 110, 50,
+                    this.w, false,
+                    DisplayTag.EllipseShape,
+                    DisplayTag.ShowValue
+                ) {
+                    BackgroundColor = Color.Green
+                };
 
-                    beneficesProblemes.Controls.Add(ivv);
-                    views.Add(i, ivv);
-               // }
+                beneficesProblemes.Controls.Add(ivv);
+                views.Add(i, ivv);
             }
 
             foreach (IndexedValue i in w.Crises) {
-                //if (i.Active.GetValueOrDefault(true)) {
-                    IndexedValueView ivv = new IndexedValueView(
-                        i, 110, 50
-                        , this.w, false,
-                        DisplayTag.ShowValue
-                    ) {
-                        BackgroundColor = Color.Red
-                    };
-
-                    beneficesProblemes.Controls.Add(ivv);
-                    views.Add(i, ivv);
-                //}
+                IndexedValueView ivv = new IndexedValueView(
+                    i, 110, 50
+                    , this.w, false,
+                    DisplayTag.EllipseShape,
+                    DisplayTag.ShowValue
+                ) {
+                    BackgroundColor = Color.Red
+                };
+                beneficesProblemes.Controls.Add(ivv);
+                views.Add(i, ivv);
             }
 
             groupes.Controls.Clear();
@@ -140,6 +138,7 @@ namespace BenouKaiss_Morax_IHM {
                 IndexedValueView ivv = new IndexedValueView(
                     i, 70, 70,
                     this.w, false,
+                    DisplayTag.EllipseShape,
                     DisplayTag.ShowValue,
                     DisplayTag.ShowArc
                 );
@@ -174,10 +173,10 @@ namespace BenouKaiss_Morax_IHM {
                 if (associatedLinkVV == null) continue;
                 g.DrawLine(new Pen(pair.Value > 0 ? Color.FromArgb(200, Color.Green) : Color.FromArgb(200, Color.Red), GetThickness(pair.Value)), GetPositionInForm(associatedVV), GetPositionInForm(associatedLinkVV));
             }
+
             g.Dispose();
             ReleaseDC(this.Handle, hdc);
         }
         #endregion
-
     }
 }

@@ -52,7 +52,6 @@ namespace BenouKaiss_Morax_IHM {
             // 
             // informations
             // 
-            this.informations.Dock = System.Windows.Forms.DockStyle.None;
             this.informations.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.informations.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tourTexte,
@@ -66,7 +65,8 @@ namespace BenouKaiss_Morax_IHM {
             this.informations.Location = new System.Drawing.Point(0, 0);
             this.informations.Name = "informations";
             this.informations.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.informations.Size = new System.Drawing.Size(511, 32);
+            this.informations.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.informations.Size = new System.Drawing.Size(1102, 32);
             this.informations.TabIndex = 0;
             this.informations.Text = "toolStrip1";
             // 
